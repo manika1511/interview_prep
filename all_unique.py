@@ -3,9 +3,9 @@ to add it to the hash map is O(1) and the is else loop is again O(1).
 Assumption: the lowercase and uppercase letters are considered same"""
 
 def all_unique(s):
-    s = s.lower()
-    l = set(s)
-    if len(s) == len(l):
+    s = s.lower()           #converting string to lower case
+    l = set(s)              #converting string to set
+    if len(s) == len(l):    #checking the length of the string and set
         return "Unique"
     else:
         return "Not Unique"
@@ -15,20 +15,21 @@ if the checked bit is accessed again then the string doesn't have unique letters
 
 def all_unique_nods(s):
     s = s.lower()
-    checker = 0
+    checker = 0 #taking 0 as a checker
 
     for ch in s:
-        val = ord (ch) - ord ('a')
-        if (checker & (1 << val)) > 0:
+        val = ord (ch) - ord ('a') #subtracting the ascii values
+        if (checker & (1 << val)) > 0: #checking if the bit is already 1
              return "Not Unique"
 
-        checker = checker|(1 << val)
+        checker = checker|(1 << val)   #if not already 1, then set to 1
     return "Unique"
 
-assert all_unique_nods("Jonathan") == "Not Unique", "not unique"
-assert all_unique_nods("Rose") == "Unique", "is unique"
-assert all_unique("Jonathan") == "Not Unique", "not unique"
-assert all_unique("Rose") == "Unique", "is unique"
+def main():
+    s = input("Enter a string: ")
+    print("Result using set: " + all_unique(s))
+    print("Result using no other data structure: " + all_unique_nods(s))
 
-
+if __name__ == "__main__":
+    main()
 
