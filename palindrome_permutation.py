@@ -1,6 +1,7 @@
 """Given a string, write a function to check if it is a permutation of a palin-drome.
 Check the count of each character. If it is a permutation of a palindrome, only one character can have odd count..
-All others will have even count"""
+All others will have even count.. 
+Making a dict is O(n) and for going through dict maximum O(n).. So total O(n+n).. O(n)"""
 
 from collections import Counter
 
