@@ -7,11 +7,11 @@ def zero_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             if matrix[i][j] == 0:
-                index.append((i,j))
+                index.append((i,j))         #storing the row and column of the element with value 0
     for item in index:
         for l in matrix:
-            l[item[1]] = 0
-        matrix[item[0]] = [0] * len(matrix[item[0]])
+            l[item[1]] = 0              #setting other rows column to zero
+        matrix[item[0]] = [0] * len(matrix[item[0]]) #setting row to 0s
 
     return matrix
 
