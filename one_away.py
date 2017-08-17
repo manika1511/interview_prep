@@ -4,13 +4,16 @@ Making set: O(n); taking difference: O(n+n) approx
 """
 
 def one_away(s1,s2):
-    if len(s1) != len(s2):      #if different length
-        if (len(s1-s2) == 1 or len(s2-s1) == 1):    #the set difference can have just one element(add or remove)
+    set1 = set(s1)
+    set2 = set(s2)
+
+    if len(set1) != len(set2):      #if different length
+        if (len(set1-set2) == 1 or len(set2-set1) == 1):    #the set difference can have just one element(add or remove)
             return True
         else:
             return False
     else:
-        if len(s1-s2) == 1 and len(s2-s1) == 1:     #if same length then one letter is different, so both side difference
+        if len(set1-set2) == 1 and len(set2-set1) == 1:     #if same length then one letter is different, so both side difference
                                                     #has one element
             return True
         else:
