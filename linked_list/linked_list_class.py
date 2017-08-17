@@ -1,5 +1,3 @@
-from .node_class import Node
-
 # Linkedlist class
 
 class LinkedList(object):
@@ -12,7 +10,8 @@ class LinkedList(object):
         new_node.next_node = self.head
         self.head=new_node
 
-    
-
-
-
+    def print_list(self):
+        start=self.head
+        while start != None:
+            print (start.data)
+            start=start.next_node
