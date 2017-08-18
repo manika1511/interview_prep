@@ -76,7 +76,6 @@ def main():
     print (l.kth_to_last(3))
     print(l.kth_to_last_two_pointer(3))
 
-
 if __name__ == "__main__":
     main()
 
