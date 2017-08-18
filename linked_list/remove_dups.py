@@ -1,3 +1,6 @@
+"""Write code to remove duplicates from an unsorted li nked list.How would you solve this problem if a 
+temporary buffer is not allowed?"""
+
 # Node class to define linked list nodes
 class Node(object):
     # constructor to initialise node
