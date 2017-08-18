@@ -70,9 +70,7 @@ def main():
     l.push(15)
     l.push(14)
     l.push(18)
-    l.print_list()
-    print ("--------")
-    l.remove_dups_no_buf()
+    l.remove_dups()
     l.print_list()
 
 if __name__ == "__main__":
