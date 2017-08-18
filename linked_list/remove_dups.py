@@ -25,7 +25,7 @@ class LinkedList(object):
             print (start.data)
             start=start.next
 
-    #method to remove duplicate nodes
+    #method to remove duplicate nodes USING BUFFER
     def remove_dups(self):
         current = self.head #start with head
 
@@ -40,6 +40,24 @@ class LinkedList(object):
             else:
                 current.next = next_node.next   #else delete it
 
+    #method to remove duplicates W/O USING BUFFER
+    def remove_dups_no_buf(self):
+        start = self.head
+
+        while start != None:
+            prev = start
+            check = start.next
+
+            while check != None:
+                if check.data == start.data:
+                    prev.next = check.next
+                    check = check.next
+                else:
+                    prev = check
+                    check = check.next
+
+            start = start.next
+
 def main():
     l= LinkedList()
     l.push(15)
@@ -49,7 +67,9 @@ def main():
     l.push(15)
     l.push(14)
     l.push(18)
-    l.remove_dups()
+    l.print_list()
+    print ("--------")
+    l.remove_dups_no_buf()
     l.print_list()
 
 if __name__ == "__main__":
