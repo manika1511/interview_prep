@@ -28,7 +28,7 @@ class LinkedList(object):
             print (start.data)
             start=start.next
 
-    #method to remove duplicate nodes USING BUFFER
+    #method to remove duplicate nodes USING BUFFER : O(1) time to access buffer + O(n) to iterate over the list
     def remove_dups(self):
         current = self.head #start with head
 
@@ -43,7 +43,7 @@ class LinkedList(object):
             else:
                 current.next = next_node.next   #else delete it
 
-    #method to remove duplicates W/O USING BUFFER
+    #method to remove duplicates W/O USING BUFFER : O(n) to iterate over the list
     def remove_dups_no_buf(self):
         start = self.head
 
