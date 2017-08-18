@@ -47,6 +47,23 @@ class LinkedList(object):
             temp = temp.next
         return temp.data #return the data
 
+    #two pointer approach to find kth from last (iterate onepointer to the kth element from start and then iterate the
+    #other till first one reaches end)
+    def kth_to_last_two_pointer(self,k):
+        start = self.head
+        iterator = self.head
+
+        count = 0
+        while count < k:
+            start = start.next
+            count = count + 1
+
+        while start != None:
+            iterator = iterator.next
+            start = start.next
+
+        return iterator.data
+
 def main():
     l= LinkedList()
     l.push(15)
@@ -57,6 +74,7 @@ def main():
     l.push(14)
     l.push(18)
     print (l.kth_to_last(3))
+    print(l.kth_to_last_two_pointer(3))
 
 
 if __name__ == "__main__":
