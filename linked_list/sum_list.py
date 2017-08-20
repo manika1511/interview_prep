@@ -31,7 +31,7 @@ class LinkedList(object):
             start=start.next
 
     #method to sum numbers is list if least significant is at head
-    def sum_list(self, list2):
+    def sum_list_reverse_digits(self, list2):
         head1=self.head
         head2=list2.head
         sum_list=LinkedList()
