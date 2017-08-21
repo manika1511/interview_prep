@@ -59,7 +59,10 @@ class LinkedList(object):
                 sum_list.push(1)
         return sum_list
 
-    # method to sum numbers in list if most significant is at head
+    # method to sum numbers in list if most significant is at head.. First make the length of both the strings
+    # equal by padding with zeroes to the shorter one .. start adding from the head and keep trach of the previous
+    # element in the sum_list. If a sum generates a carry, then add that carry to the previous element
+    # in the sum listand then push the sum in list.
     def sum_list_forward_digits(self, list2):
         size1=self.size()
         size2=list2.size()
