@@ -66,14 +66,39 @@ class LinkedList(object):
             return False
         return True
 
+    def palindrome_reverse_list(self):
+        if self.head is None:
+            return True
+
+            # find mid node
+        fast = slow = self.head
+
+        while fast.next and fast.next.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        # reverse second half
+        p, last = slow.next, None
+        while p:
+            next = p.next
+            p.next = last
+            last, p = p, next
+
+        # check palindrome
+        p1, p2 = last, self.head
+        while p1 and p1.data == p2.data:
+            p1, p2 = p1.next, p2.next
+        return p1 is None
+
 def main():
     l1= LinkedList()
     l1.push("m")
     l1.push("a")
+    l1.push("d")
     l1.push("a")
     l1.push("m")
 
-    print (l1.palindrome())
+    print (l1.palindrome_reverse_list())
 
 if __name__ == "__main__":
     main()
