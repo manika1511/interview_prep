@@ -1,3 +1,6 @@
+"""Given a circular linked list, implement an algorithm that returns the node at the
+beginning of the loop."""
+
 # Node class to define linked list nodes
 class Node(object):
     # constructor to initialise node
