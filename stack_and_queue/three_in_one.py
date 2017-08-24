@@ -15,3 +15,8 @@ class Stack(object):
     #method to remove data from top of stack
     def pop(self):
         return self.items.pop()
+
+    #method to peek the value on top of stack
+    def peek(self):
+        return self.items[len(self.items)-1]
+
