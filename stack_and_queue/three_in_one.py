@@ -8,3 +8,6 @@ class Stack(object):
     def isEmpty(self):
         return len(self.items)==0
 
+    #method to push data onto stack
+    def push(self, data):
+        self.item.append(data)
