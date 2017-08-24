@@ -10,4 +10,8 @@ class Stack(object):
 
     #method to push data onto stack
     def push(self, data):
-        self.item.append(data)
+        self.items.append(data)
+
+    #method to remove data from top of stack
+    def pop(self):
+        return self.items.pop()
