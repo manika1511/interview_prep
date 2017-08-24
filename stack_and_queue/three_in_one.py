@@ -20,3 +20,6 @@ class Stack(object):
     def peek(self):
         return self.items[len(self.items)-1]
 
+    #method to return stack size
+    def size(self):
+        return len(self.items)
