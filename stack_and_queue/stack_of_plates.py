@@ -30,9 +30,38 @@ class SetOfStacks(object):
         self.stacks=[]
 
     def push(self, data):
-        if (len(self.stacks) == 0 or len(self.stack[-1]) == self.capacity):
+        if (len(self.stacks) == 0 or len(self.stacks[-1]) == self.capacity):
             self.stacks.append([])
         self.stacks[-1].append(data)
+
+    def pop(self):
+        if len(self.stacks) == 0:
+            return None
+        data=self.stacks[-1].pop()
+        if len(self.stacks[-1]) == 0:
+            self.stacks.pop()
+        return data
+
+def main():
+    setofstacks = SetOfStacks(8)
+    for i in range(24):
+        setofstacks.push(i)
+        print (i)
+    print ("")
+
+    for i in range(5):
+        print ("Poped", setofstacks.pop())
+
+    # print ("Test for popAt")
+    # for i in range(5):
+    #     for i in range(3):
+    #         print ("Poped", setofstacks.popAt(i+1))
+
+
+if __name__ == "__main__":
+    main()
+
+
 
 
 
