@@ -42,6 +42,12 @@ class SetOfStacks(object):
             self.stacks.pop()
         return data
 
+    def popAt(self, index):
+        if index < 1 or index > len(self.stacks) or len(self.stacks[index - 1]) == 0:
+            return None
+        else:
+            return self.stacks[index - 1].pop()
+
 def main():
     setofstacks = SetOfStacks(8)
     for i in range(24):
@@ -52,10 +58,10 @@ def main():
     for i in range(5):
         print ("Poped", setofstacks.pop())
 
-    # print ("Test for popAt")
-    # for i in range(5):
-    #     for i in range(3):
-    #         print ("Poped", setofstacks.popAt(i+1))
+    print ("Test for popAt")
+    for i in range(5):
+        for i in range(3):
+            print ("Poped", setofstacks.popAt(i+1))
 
 
 if __name__ == "__main__":
