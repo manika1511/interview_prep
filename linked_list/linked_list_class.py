@@ -1,5 +1,4 @@
 # Linkedlist class
-
 class LinkedList(object):
     #method to initialise head
     def __init__(self, head=None):
