@@ -1,4 +1,5 @@
 """Program to find point of intersection of two linked lists"""
+import random
 
 # Node class to define linked list nodes
 class Node(object):
@@ -65,6 +66,51 @@ class LinkedList(object):
             head1=head1.next
             head2=head2.next
         return head1
+
+def merge(self, other):
+    head1 = self.head
+    head2 = other.head
+
+    while head1 != None or head2 != None:
+        head1 = head1.next
+        head2 = head2.next
+
+    if head1 == None:
+        head1 = other.head
+        while head2 != None:
+            head2 = head2.next
+            head1 = head1.next
+        head2 = other.head
+    else:
+        head2 = self.head
+        while head1 != None:
+            head1 = head1.next
+            head2 = head2.next
+        head1 = self.head
+
+    while head1.next != head2.next:
+        head1 = head1.next
+        head2 = head2.next
+
+    return head2.data
+
+def main():
+    l1 = LinkedList()
+    for i in range(10):
+        l1.push(random.randint(1, 100))
+    l1.print_list()
+
+    l2 = LinkedList()
+    for i in range(5):
+        l2.push(random.randint(1, 100))
+    l2.print_list()
+
+if __name__ == '__main__':
+    main()
+
+
+
+
 
 
 
