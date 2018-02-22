@@ -1,4 +1,4 @@
-#find the sub-array, sorting which sorts the entire array
+#find the sub-array, sorting which sorts the entire array (O(n))
 def sort_sub(arr):
     start = 0
     end = 0
