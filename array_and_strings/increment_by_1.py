@@ -1,3 +1,5 @@
+#increment a number by 1
+
 def increment(arr):
     carry = 1 #as one needs to be added
     sum = 0
