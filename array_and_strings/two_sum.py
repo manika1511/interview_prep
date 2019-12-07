@@ -30,6 +30,24 @@ def two_sum_map(arr, sum):
                 result.append((i, d[arr[i]]))
     return result
 
+#done in leetcode
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        d = dict()
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if diff in d:
+                return [d[diff][1], i]
+            else:
+                if nums[i] not in d:
+                    d[nums[i]] = (target - nums[i], i)
+        return None
+
 def main():
     arr = [1,2,5,4,6,8,9]
     sum = 13
