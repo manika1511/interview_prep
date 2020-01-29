@@ -3,26 +3,70 @@ Covert the strings into sets and then check the conditions using set operations.
 Making set: O(n); taking difference: O(n+n) approx
 """
 
-def one_away(s1,s2):
-    set1 = set(s1)
-    set2 = set(s2)
 
-    if len(set1) != len(set2):      #if different length
-        if (len(set1-set2) == 1 or len(set2-set1) == 1):    #the set difference can have just one element(add or remove)
-            return True
-        else:
+class Solution(object):
+    def isOneEditDistance(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if abs(len(s) - len(t)) > 1:
             return False
-    else:
-        if len(set1-set2) == 1 and len(set2-set1) == 1:     #if same length then one letter is different, so both side difference
-                                                    #has one element
-            return True
-        else:
+
+        if s == t:
             return False
+
+        if len(s) == len(t):
+            count = 0
+            for i in range(len(s)):
+                if s[i] != t[i]:
+                    count = count + 1
+                    if count > 1:
+                        return False
+            return True
+
+        elif len(s) > len(t):
+            count = 0
+            i, j = 0, 0
+            while i < len(s) and j < len(t):
+                if s[i] != t[j]:
+                    count = count + 1
+                    if count > 1:
+                        return False
+                    if s[i + 1] != t[j]:
+                        return False
+                    else:
+                        i = i + 2
+                        j = j + 1
+                else:
+                    i = i + 1
+                    j = j + 1
+            return True
+
+        else:
+            count = 0
+            i, j = 0, 0
+            while i < len(s) and j < len(t):
+                if s[i] != t[j]:
+                    count = count + 1
+                    if count > 1:
+                        return False
+                    if s[i] != t[j + 1]:
+                        return False
+                    else:
+                        i = i + 1
+                        j = j + 2
+                else:
+                    i = i + 1
+                    j = j + 1
+            return True
+
 
 def main():
     s1 = input("Enter first string: ")
     s2 = input('Enter second string: ')
-    print (one_away(s1, s2))
+    print (Solution().isOneEditDistance(s1, s2))
 
 if __name__ == '__main__':
     main()
