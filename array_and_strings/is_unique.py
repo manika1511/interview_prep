@@ -19,16 +19,30 @@ def all_unique_nods(s):
 
     for ch in s:
         val = ord (ch) - ord ('a') #subtracting the ascii values
+        x = (1 << val)
+        y = checker & (1 << val)
         if (checker & (1 << val)) > 0: #checking if the bit is already 1
              return "Not Unique"
-
+        z = checker | (1 << val)
         checker = checker|(1 << val)   #if not already 1, then set to 1
     return "Unique"
 
+def is_unique(s):
+    d = dict()
+    for char in s:
+        if char in d.keys():
+            return "Not Unique"
+        else:
+            d[char] = 1
+    return "Unique"
+
 def main():
-    s = input("Enter a string: ")
-    print("Result using set: " + all_unique(s))
-    print("Result using no other data structure: " + all_unique_nods(s))
+    # s = input("Enter a string: ")
+    # print("Result using set: " + all_unique(s))
+    # print("Result using no other data structure: " + all_unique_nods(s))
+    # print("Result using dict: " + is_unique(s))
+
+    print("Result using no other data structure: " + all_unique_nods("Manika"))
 
 if __name__ == "__main__":
     main()

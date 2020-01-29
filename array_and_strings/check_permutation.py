@@ -15,10 +15,33 @@ def check_permutation(s1,s2):
     else:
         return False
 
+def check_permutation2(s1, s2): #considering case-sensitivity
+    d1 = dict()
+    if len(s1) != len(s2):
+        return False
+
+    for char in s1:
+        if char in d1:
+            d1[char] = d1[char] + 1
+        else:
+            d1[char] = 1
+    for char in s2:
+        if char not in d1:
+            return False
+        else:
+            d1[char] = d1[char] - 1
+            if d1[char] < 0:
+                return False
+
+    if sum(d1.values()) != 0:
+        return False
+    else:
+        return True
+
 def main():
     s1 = input("Enter first string: ")
     s2 = input("Enter second string: ")
-    print (check_permutation(s1,s2))
+    print (check_permutation2(s1,s2))
 
 if __name__ == '__main__':
     main()
