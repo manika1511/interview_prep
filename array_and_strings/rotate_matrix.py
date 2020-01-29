@@ -20,9 +20,31 @@ def rotate(arr, start, end):
         cur = cur + 1
     return arr
 
+def rotate2(self, matrix):
+    """
+    :type matrix: List[List[int]]
+    :rtype: None Do not return anything, modify matrix in-place instead.
+    """
+
+    n = len(matrix)
+
+    # transpose matrix
+    for i in range(n):
+        for j in range(i, n):
+            tmp = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = tmp
+
+    # reverse each row
+    for i in range(n):
+        matrix[i] = matrix[i][::-1]
+
+    return matrix
+
 def main():
     random.seed(10)
-    matrix = np.random.random_integers(20, size=(4,4))
+    # matrix = np.random.random_integers(20, size=(4,4))
+    matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
     print (matrix)
     print (rotate_matrix(matrix))
 
