@@ -38,10 +38,27 @@ def check_permutation2(s1, s2): #considering case-sensitivity
     else:
         return True
 
+def check_permutation3(s1, s2): #considering case-sensitivity and using constant space
+    check = [0]*128
+    if len(s1) != len(s2):
+        return False
+
+    for char in s1:
+        check[ord(char)] = check[ord(char)] + 1
+    for char in s2:
+        check[ord(char)] = check[ord(char)] - 1
+        if check[ord(char)] < 0:
+            return False
+
+    if sum(check) != 0:
+        return False
+    else:
+        return True
+
 def main():
     s1 = input("Enter first string: ")
     s2 = input("Enter second string: ")
-    print (check_permutation2(s1,s2))
+    print (check_permutation3(s1,s2))
 
 if __name__ == '__main__':
     main()
