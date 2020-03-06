@@ -31,5 +31,5 @@ if __name__ == '__main__':
     # print(stack.peek())
     # print(stack.isEmpty())
     print(stack.pop())
-    print(stack.print_stack())
+    stack.print_stack()
 

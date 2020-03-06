@@ -28,3 +28,7 @@ if __name__== "__main__":
     queue.add(7)
     queue.add(6)
     queue.print_q()
+    print(queue.peek())
+    print(queue.remove())
+    queue.print_q()
+    print(queue.isEmpty())
